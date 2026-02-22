@@ -64,7 +64,7 @@ export default function Header({ onMobileMenuToggle }: HeaderProps) {
                 />
                 <Input
                     placeholder="Search..."
-                    className="h-9 w-52 rounded-lg border border-border/50 bg-muted/30 pl-8 text-[13px] focus-visible:ring-1 focus-visible:ring-primary/30"
+                    className="h-9 w-52 rounded-lg border border-border/50 bg-muted/30 pl-8 text-[13px] transition-all duration-300 hover:border-primary/40 hover:bg-muted/50 focus-visible:ring-1 focus-visible:ring-primary/30"
                 />
             </div>
 

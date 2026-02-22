@@ -1,9 +1,8 @@
-import React from 'react'
+import BiddingManagementContainer from '@/components/bidding/BiddingManagementContainer';
+import React from 'react';
 
-const page = () => {
-    return (
-        <div>bidding</div>
-    )
-}
+const BiddingPage = () => {
+    return <BiddingManagementContainer />;
+};
 
-export default page
+export default BiddingPage;
