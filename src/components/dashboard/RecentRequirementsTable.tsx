@@ -2,41 +2,19 @@
 
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-
-// ── Self-contained data ──────────────────────────────────────
-type Status = "AWARDED" | "LIVE" | "DRAFT" | "PENDING";
-
-interface Requirement {
-    id: string;
-    project: string;
-    client: string;
-    equipment: string;
-    equipmentCount?: number;
-    status: Status;
-    bids: number;
-}
-
-const DEFAULT_DATA: Requirement[] = [
-    { id: "RFQ-001", project: "Pakri Barwadih Mine", client: "NTPC Ltd", equipment: "Hyva x25", equipmentCount: 1, status: "AWARDED", bids: 8 },
-    { id: "REQ-002", project: "Godda Thermal Plant", client: "Adani Power", equipment: "Dumper x15", equipmentCount: 1, status: "LIVE", bids: 5 },
-    { id: "RFQ-003", project: "Amrapali Mine", client: "Coal India", equipment: "Tipper x10", equipmentCount: 4, status: "DRAFT", bids: 0 },
-    { id: "REQ-004", project: "Rajmahal OCP", client: "ECL", equipment: "Trailer x8", equipmentCount: 2, status: "LIVE", bids: 11 },
-    { id: "REQ-005", project: "Mumbai Coastal Road", client: "L&T Construction", equipment: "Transit Mixer x12", equipmentCount: 2, status: "LIVE", bids: 3 },
-    { id: "REQ-006", project: "Mumbai Coastal Road", client: "L&T Construction", equipment: "Transit Mixer x12", equipmentCount: 2, status: "LIVE", bids: 3 },
-];
+import { mockRequirements, Requirement } from "@/data/mockData";
 
 // Colors from globals.css tokens only
-const STATUS_STYLE: Record<Status, string> = {
+const STATUS_STYLE: Record<Requirement["status"], string> = {
     AWARDED: "bg-chart-2/15 text-chart-2",
     LIVE: "bg-primary/10 text-primary",
     DRAFT: "bg-muted text-muted-foreground",
-    PENDING: "bg-chart-4/20 text-chart-5",
+    CLOSED: "bg-muted text-muted-foreground",
 };
 
-interface RecentRequirementsTableProps { data?: Requirement[] }
-
-export default function RecentRequirementsTable({ data = DEFAULT_DATA }: RecentRequirementsTableProps) {
+export default function RecentRequirementsTable() {
     const [hIdx, setHIdx] = useState<number | null>(null);
+    const data = mockRequirements.slice(0, 5); // take max 5
 
     return (
         <div
@@ -70,6 +48,9 @@ export default function RecentRequirementsTable({ data = DEFAULT_DATA }: RecentR
                     <tbody className="divide-y divide-border/50">
                         {data.map((req, i) => {
                             const isH = hIdx === i;
+                            const mainEquipment = req.items[0];
+                            const remainingEquipmentCount = req.items.length - 1;
+
                             return (
                                 <tr
                                     key={i}
@@ -92,26 +73,28 @@ export default function RecentRequirementsTable({ data = DEFAULT_DATA }: RecentR
                                     {/* Project — static */}
                                     <td className="px-5 py-3.5">
                                         <p className="text-[13px] font-medium leading-none text-foreground">
-                                            {req.project}
+                                            {req.projectName}
                                         </p>
                                     </td>
 
                                     {/* Client — static */}
                                     <td className="px-5 py-3.5">
                                         <p className="text-[12.5px] text-muted-foreground">
-                                            {req.client}
+                                            {req.clientName}
                                         </p>
                                     </td>
 
                                     {/* Equipment — static */}
                                     <td className="px-5 py-3.5">
                                         <div className="flex flex-wrap gap-1.5">
-                                            <Badge variant="outline" className="h-5 border-border bg-transparent px-2 text-[10px] font-medium">
-                                                {req.equipment}
-                                            </Badge>
-                                            {req.equipmentCount && (
+                                            {mainEquipment && (
+                                                <Badge variant="outline" className="h-5 border-border bg-transparent px-2 text-[10px] font-medium">
+                                                    {mainEquipment.vehicleCategory} x{mainEquipment.quantityRequired}
+                                                </Badge>
+                                            )}
+                                            {remainingEquipmentCount > 0 && (
                                                 <Badge variant="outline" className="h-5 border-primary/20 bg-primary/5 px-1.5 text-[10px] font-medium text-primary">
-                                                    +{req.equipmentCount}
+                                                    +{remainingEquipmentCount}
                                                 </Badge>
                                             )}
                                         </div>
@@ -127,7 +110,7 @@ export default function RecentRequirementsTable({ data = DEFAULT_DATA }: RecentR
                                     {/* Bids — ONLY this column changes color on hover */}
                                     <td className="px-5 py-3.5 text-center">
                                         <span className={`text-[14px] font-bold tabular-nums transition-colors duration-150 ${isH ? "text-primary" : "text-foreground"}`}>
-                                            {req.bids}
+                                            {req.bidsCount}
                                         </span>
                                     </td>
                                 </tr>
