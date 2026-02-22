@@ -14,7 +14,7 @@ const PAGE_META: Record<string, { title: string; subtitle?: string; date?: boole
     "/requirements": { title: "Requirements", date: false },
     "/bidding": { title: "Bidding", date: false },
     "/work-orders": { title: "Work Orders", subtitle: "Active contracts with vendors", date: false },
-    "/vehicles": { title: "Vehicles", date: false },
+    "/vehicles": { title: "Vehicles", subtitle: "Fleet tracking and Status Management", date: false },
     "/operations": { title: "Operations", date: false },
     "/billing": { title: "Billing", date: false },
 };

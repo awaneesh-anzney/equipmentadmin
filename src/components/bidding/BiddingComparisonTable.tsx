@@ -6,6 +6,7 @@ import { Star, MoreVertical, XCircle, CheckCircle2 } from "lucide-react";
 import { Bid } from "@/data/mockData";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Card } from "@/components/ui/card";
 
 interface BiddingComparisonTableProps {
     bids: Bid[];
@@ -26,10 +27,10 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
     };
 
     return (
-        <div className="bg-white rounded-xl border border-border/60 shadow-sm overflow-hidden flex flex-col">
-            {/* Top accent line - Orange as seen in screenshot */}
-            <div className="h-1 bg-primary w-full" />
-
+        <Card
+            className="rounded-xl border border-border/60 shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+            style={{ borderTop: "4px solid var(--primary)" }}
+        >
             <div className="p-5 border-b border-border/40 bg-white flex justify-between items-center">
                 <div className="flex flex-col gap-0.5">
                     <h3 className="text-[17.5px] font-bold text-foreground">Live Bid Comparison</h3>
@@ -150,6 +151,6 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                     </TableBody>
                 </Table>
             </div>
-        </div>
+        </Card>
     );
 }
