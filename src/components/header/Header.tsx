@@ -16,7 +16,7 @@ const PAGE_META: Record<string, { title: string; subtitle?: string; date?: boole
     "/work-orders": { title: "Work Orders", subtitle: "Active contracts with vendors", date: false },
     "/vehicles": { title: "Vehicles", subtitle: "Fleet tracking and Status Management", date: false },
     "/operations": { title: "Operations", subtitle: "Today's vehicle attendance and trips", date: false },
-    "/billing": { title: "Billing", date: false },
+    "/billing": { title: "Billing", subtitle: "Vendor invoices and payment tracking", date: false },
 };
 
 function getFormattedDate() {
