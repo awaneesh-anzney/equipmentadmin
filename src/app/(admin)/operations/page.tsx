@@ -1,9 +1,9 @@
-import React from 'react'
+import OperationsManagementContainer from "@/components/operations/OperationsManagementContainer";
 
-const page = () => {
+export default function OperationsPage() {
     return (
-        <div>operation</div>
-    )
+        <div className="max-w-[1600px] mx-auto">
+            <OperationsManagementContainer />
+        </div>
+    );
 }
-
-export default page
