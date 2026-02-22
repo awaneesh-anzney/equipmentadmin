@@ -12,7 +12,7 @@ export default function BiddingEquipmentFilters({ filters, selectedCategory, onS
     return (
         <div className="space-y-4">
             <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-1">Filter by Equipment</h3>
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-nowrap overflow-x-auto pb-2 gap-2.5 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
                 <button
                     onClick={() => onSelect("all")}
                     className={cn(

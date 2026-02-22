@@ -27,7 +27,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             {/* Main content area */}
             <div className="flex flex-1 flex-col min-w-0 overflow-hidden">
                 <Header onMobileMenuToggle={() => setIsSidebarOpen(p => !p)} />
-                <main className="flex-1 overflow-y-auto px-7 py-6">
+                <main className="flex-1 overflow-y-auto px-4 py-4 md:px-7 md:py-6">
                     <div className="mx-auto w-full max-w-[1440px]">
                         {children}
                     </div>

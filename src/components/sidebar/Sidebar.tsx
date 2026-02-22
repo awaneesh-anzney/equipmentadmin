@@ -35,7 +35,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
     return (
         <aside
             className={[
-                "fixed inset-y-0 left-0 z-50 w-[240px] shrink-0",
+                "fixed inset-y-0 left-0 z-50 w-[280px] shrink-0",
                 "dark bg-sidebar text-sidebar-foreground",
                 "border-r border-sidebar-border",
                 "flex flex-col overflow-hidden",
@@ -50,7 +50,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
                     <Truck size={16} className="text-primary-foreground" />
                 </div>
                 <div className="min-w-0">
-                    <p className="truncate text-[13px] font-extrabold uppercase leading-none tracking-wide text-white">
+                    <p className="truncate text-[14px] font-extrabold uppercase leading-none tracking-wide text-white">
                         Equipment Share
                     </p>
                     <p className="mt-0.5 text-[10px] uppercase leading-none tracking-widest text-muted-foreground">
@@ -69,7 +69,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
                             href={href}
                             className={[
                                 "group flex items-center justify-between rounded-lg px-3 py-2.5",
-                                "text-[13px] font-medium transition-all duration-150",
+                                "text-[14px] font-semibold transition-all duration-150",
                                 active
                                     ? "bg-primary/15 text-primary"
                                     : "text-sidebar-foreground/60 hover:bg-white/5 hover:text-sidebar-foreground",
@@ -77,7 +77,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
                         >
                             <span className="flex items-center gap-3">
                                 <Icon
-                                    size={16}
+                                    size={18}
                                     strokeWidth={active ? 2.5 : 2}
                                     className={active ? "text-primary" : "text-sidebar-foreground/40 transition-colors group-hover:text-sidebar-foreground"}
                                 />

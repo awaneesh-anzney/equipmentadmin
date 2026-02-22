@@ -2,9 +2,10 @@
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Star, MoreVertical, MapPin, Clock, Check, XCircle } from "lucide-react";
+import { Star, MoreVertical, XCircle, CheckCircle2 } from "lucide-react";
 import { Bid } from "@/data/mockData";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 interface BiddingComparisonTableProps {
     bids: Bid[];
@@ -12,6 +13,18 @@ interface BiddingComparisonTableProps {
 }
 
 export default function BiddingComparisonTable({ bids, subtitle }: BiddingComparisonTableProps) {
+    const handleAccept = (vendorName: string) => {
+        toast.success(`Bid from ${vendorName} accepted!`, {
+            description: "Work order will be generated shortly.",
+        });
+    };
+
+    const handleReject = (vendorName: string) => {
+        toast.error(`Bid from ${vendorName} rejected`, {
+            style: { background: '#fef2f2', color: '#991b1b', border: '1px solid #fecaca' }
+        });
+    };
+
     return (
         <div className="bg-white rounded-xl border border-border/60 shadow-sm overflow-hidden flex flex-col">
             {/* Top accent line - Orange as seen in screenshot */}
@@ -37,10 +50,10 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Equipment</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-center">Qty</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Rate (₹)</TableHead>
-                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-center">Age</TableHead>
-                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Rating</TableHead>
-                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Distance</TableHead>
-                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Join</TableHead>
+                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-center hidden md:table-cell">Age</TableHead>
+                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest hidden md:table-cell">Rating</TableHead>
+                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest hidden lg:table-cell">Distance</TableHead>
+                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest hidden lg:table-cell">Join</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Status</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-right">Actions</TableHead>
                         </TableRow>
@@ -76,19 +89,19 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                                     <TableCell className="px-5 py-4 text-[15px] font-bold text-foreground tabular-nums">
                                         ₹{bid.rate.toLocaleString()}
                                     </TableCell>
-                                    <TableCell className="px-5 py-4 text-center text-[13px] text-muted-foreground font-bold">
+                                    <TableCell className="px-5 py-4 text-center text-[13px] text-muted-foreground font-bold hidden md:table-cell">
                                         {bid.vehicleAge}
                                     </TableCell>
-                                    <TableCell className="px-5 py-4">
+                                    <TableCell className="px-5 py-4 hidden md:table-cell">
                                         <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-amber-500/5 w-fit border border-amber-500/10">
                                             <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
                                             <span className="text-[13.5px] font-bold text-amber-700">{bid.rating}</span>
                                         </div>
                                     </TableCell>
-                                    <TableCell className="px-5 py-4 text-[13.5px] font-bold text-muted-foreground">
+                                    <TableCell className="px-5 py-4 text-[13.5px] font-bold text-muted-foreground hidden lg:table-cell">
                                         {bid.distance}
                                     </TableCell>
-                                    <TableCell className="px-5 py-4 text-[13.5px] font-bold text-muted-foreground">
+                                    <TableCell className="px-5 py-4 text-[13.5px] font-bold text-muted-foreground hidden lg:table-cell">
                                         {bid.joiningDays}d
                                     </TableCell>
                                     <TableCell className="px-5 py-4">
@@ -110,6 +123,7 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                                                 <>
                                                     <Button
                                                         size="sm"
+                                                        onClick={() => handleAccept(bid.vendorName)}
                                                         className="h-8 bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/10 px-3 rounded-lg text-[11px] font-bold"
                                                     >
                                                         ACCEPT
@@ -117,6 +131,7 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                                                     <Button
                                                         variant="ghost"
                                                         size="icon"
+                                                        onClick={() => handleReject(bid.vendorName)}
                                                         className="h-8 w-8 text-rose-500 hover:bg-rose-50 rounded-full"
                                                     >
                                                         <XCircle className="h-5 w-5" />

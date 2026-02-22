@@ -9,11 +9,11 @@ interface HeaderProps {
     onMobileMenuToggle: () => void;
 }
 
-const PAGE_META: Record<string, { title: string; date?: boolean }> = {
+const PAGE_META: Record<string, { title: string; subtitle?: string; date?: boolean }> = {
     "/dashboard": { title: "Dashboard", date: true },
     "/requirements": { title: "Requirements", date: false },
     "/bidding": { title: "Bidding", date: false },
-    "/work-orders": { title: "Work Orders", date: false },
+    "/work-orders": { title: "Work Orders", subtitle: "Active contracts with vendors", date: false },
     "/vehicles": { title: "Vehicles", date: false },
     "/operations": { title: "Operations", date: false },
     "/billing": { title: "Billing", date: false },
@@ -46,6 +46,11 @@ export default function Header({ onMobileMenuToggle }: HeaderProps) {
                 <h1 className="text-[18px] font-bold leading-none text-foreground">
                     {meta.title}
                 </h1>
+                {meta.subtitle && (
+                    <p className="mt-0.5 text-[12px] font-medium leading-none text-muted-foreground">
+                        {meta.subtitle}
+                    </p>
+                )}
                 {meta.date && (
                     <p className="mt-0.5 text-[12px] font-medium leading-none text-muted-foreground">
                         {getFormattedDate()}

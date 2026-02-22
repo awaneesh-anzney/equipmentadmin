@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     description: "Professional equipment bidding and fleet management platform",
 };
 
+import { Toaster } from "@/components/ui/sonner";
+
 export default function RootLayout({
     children,
 }: {
@@ -21,6 +23,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={`${inter.variable} font-sans antialiased`}>
                 {children}
+                <Toaster position="top-right" richColors />
             </body>
         </html>
     );

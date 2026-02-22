@@ -14,7 +14,7 @@ export default function BiddingRequirementTags({ requirements, selectedId, onSel
     return (
         <div className="space-y-4">
             <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-2">Select Requirement</h3>
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-nowrap items-stretch overflow-x-auto pb-2 gap-3 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
                 {requirements.map((req) => (
                     <div
                         key={req.id}
@@ -28,8 +28,8 @@ export default function BiddingRequirementTags({ requirements, selectedId, onSel
                     >
                         <div className="flex items-center gap-1.5">
                             <span className={cn(
-                                "text-[9px] font-bold px-1.2 py-0.2 rounded transition-colors",
-                                selectedId === req.id ? "bg-primary text-white" : "bg-slate-100 text-slate-400 group-hover:bg-slate-200"
+                                "text-[10px] font-extrabold transition-colors",
+                                selectedId === req.id ? "text-primary" : "text-muted-foreground/30"
                             )}>
                                 {req.id}
                             </span>

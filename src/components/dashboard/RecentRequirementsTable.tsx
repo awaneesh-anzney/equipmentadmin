@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { mockRequirements, Requirement } from "@/data/mockData";
+import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
+import { Card } from "@/components/ui/card";
 
 // Colors from globals.css tokens only
 const STATUS_STYLE: Record<Requirement["status"], string> = {
@@ -17,7 +19,7 @@ export default function RecentRequirementsTable() {
     const data = mockRequirements.slice(0, 5); // take max 5
 
     return (
-        <div
+        <Card
             className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white shadow-none transition-all duration-200 hover:border-primary/30 hover:shadow-sm dark:bg-card"
             style={{ borderTop: "3px solid var(--primary)" }}
         >
@@ -34,27 +36,27 @@ export default function RecentRequirementsTable() {
 
             {/* Table */}
             <div className="flex-1 overflow-x-auto">
-                <table className="w-full border-collapse text-left">
-                    <thead>
-                        <tr className="bg-muted/30">
-                            <th className="whitespace-nowrap px-5 py-2.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">ID</th>
-                            <th className="px-5 py-2.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Project</th>
-                            <th className="px-5 py-2.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Client</th>
-                            <th className="px-5 py-2.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Equipment</th>
-                            <th className="px-5 py-2.5 text-center text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Status</th>
-                            <th className="px-5 py-2.5 text-center text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Bids</th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-border/50">
+                <Table className="w-full">
+                    <TableHeader>
+                        <TableRow className="bg-muted/30 border-none hover:bg-muted/30">
+                            <TableHead className="whitespace-nowrap px-5 py-2.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">ID</TableHead>
+                            <TableHead className="px-5 py-2.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Project</TableHead>
+                            <TableHead className="px-5 py-2.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Client</TableHead>
+                            <TableHead className="px-5 py-2.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Equipment</TableHead>
+                            <TableHead className="px-5 py-2.5 text-center text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Status</TableHead>
+                            <TableHead className="px-5 py-2.5 text-center text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">Bids</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody className="divide-y divide-border/50">
                         {data.map((req, i) => {
                             const isH = hIdx === i;
                             const mainEquipment = req.items[0];
                             const remainingEquipmentCount = req.items.length - 1;
 
                             return (
-                                <tr
+                                <TableRow
                                     key={i}
-                                    className="cursor-pointer transition-colors duration-150"
+                                    className="cursor-pointer transition-colors duration-150 border-none hover:bg-transparent"
                                     style={{
                                         backgroundColor: isH
                                             ? "color-mix(in oklch, var(--primary) 5%, transparent)"
@@ -64,28 +66,28 @@ export default function RecentRequirementsTable() {
                                     onMouseLeave={() => setHIdx(null)}
                                 >
                                     {/* ID — static */}
-                                    <td className="px-5 py-3.5">
+                                    <TableCell className="px-5 py-3.5">
                                         <span className="font-mono text-[11.5px] font-semibold text-muted-foreground">
                                             {req.id}
                                         </span>
-                                    </td>
+                                    </TableCell>
 
                                     {/* Project — static */}
-                                    <td className="px-5 py-3.5">
+                                    <TableCell className="px-5 py-3.5">
                                         <p className="text-[13px] font-medium leading-none text-foreground">
                                             {req.projectName}
                                         </p>
-                                    </td>
+                                    </TableCell>
 
                                     {/* Client — static */}
-                                    <td className="px-5 py-3.5">
+                                    <TableCell className="px-5 py-3.5">
                                         <p className="text-[12.5px] text-muted-foreground">
                                             {req.clientName}
                                         </p>
-                                    </td>
+                                    </TableCell>
 
                                     {/* Equipment — static */}
-                                    <td className="px-5 py-3.5">
+                                    <TableCell className="px-5 py-3.5">
                                         <div className="flex flex-wrap gap-1.5">
                                             {mainEquipment && (
                                                 <Badge variant="outline" className="h-5 border-border bg-transparent px-2 text-[10px] font-medium">
@@ -98,27 +100,27 @@ export default function RecentRequirementsTable() {
                                                 </Badge>
                                             )}
                                         </div>
-                                    </td>
+                                    </TableCell>
 
                                     {/* Status — static */}
-                                    <td className="px-5 py-3.5 text-center">
+                                    <TableCell className="px-5 py-3.5 text-center">
                                         <span className={`inline-flex items-center rounded-md px-2.5 py-0.5 text-[10.5px] font-bold uppercase tracking-wide ${STATUS_STYLE[req.status]}`}>
                                             {req.status}
                                         </span>
-                                    </td>
+                                    </TableCell>
 
                                     {/* Bids — ONLY this column changes color on hover */}
-                                    <td className="px-5 py-3.5 text-center">
+                                    <TableCell className="px-5 py-3.5 text-center">
                                         <span className={`text-[14px] font-bold tabular-nums transition-colors duration-150 ${isH ? "text-primary" : "text-foreground"}`}>
                                             {req.bidsCount}
                                         </span>
-                                    </td>
-                                </tr>
+                                    </TableCell>
+                                </TableRow>
                             );
                         })}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
             </div>
-        </div>
+        </Card>
     );
 }

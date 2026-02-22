@@ -135,7 +135,7 @@ export default function RequirementCard({ requirement }: { requirement: Requirem
                             variant="ghost"
                             size="sm"
                             onClick={() => setIsDetailsOpen(true)}
-                            className="h-9 gap-2 bg-muted/50 text-foreground hover:bg-muted font-bold transition-all rounded-md px-4 border border-border/50 text-[12.5px]"
+                            className="h-9 gap-2 bg-slate-50 text-foreground hover:bg-white font-bold transition-all rounded-md px-4 border border-slate-200 hover:border-primary/40 shadow-sm text-[12.5px]"
                         >
                             <Eye className="h-4 w-4" />
                             Details

@@ -1,9 +1,8 @@
-import React from 'react'
+import WorkOrderListContainer from "@/components/work-orders/WorkOrderListContainer";
+import React from 'react';
 
-const page = () => {
-    return (
-        <div>work order</div>
-    )
-}
+const WorkOrdersPage = () => {
+    return <WorkOrderListContainer />;
+};
 
-export default page
+export default WorkOrdersPage;
