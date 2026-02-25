@@ -21,15 +21,15 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-[450px] p-0 overflow-hidden rounded-2xl border-none shadow-2xl flex flex-col gap-0 [&>button]:right-6 [&>button]:top-8 [&>button]:opacity-40 hover:[&>button]:opacity-100 [&>button]:bg-transparent [&>button]:border-none [&>button]:shadow-none [&>button]:h-6 [&>button]:w-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button>svg]:h-5 [&>button>svg]:w-5 focus-visible:outline-none bg-white">
+            <DialogContent className="max-w-[450px] p-0 overflow-hidden rounded-2xl border-none shadow-2xl flex flex-col gap-0 [&>button]:right-6 [&>button]:top-8 [&>button]:opacity-40 hover:[&>button]:opacity-100 [&>button]:bg-transparent [&>button]:border-none [&>button]:shadow-none [&>button]:h-6 [&>button]:w-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button>svg]:h-5 [&>button>svg]:w-5 focus-visible:outline-none bg-white dark:bg-card">
                 <div className="p-8 relative">
                     {/* Header */}
                     <div className="flex justify-between items-center mb-8">
                         <div className="flex items-center gap-3">
-                            <div className="bg-slate-50 border border-slate-200 px-3 py-1.5 rounded text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                            <div className="bg-slate-50 dark:bg-muted border border-slate-200 dark:border-border px-3 py-1.5 rounded text-[11px] font-bold text-slate-500 dark:text-muted-foreground uppercase tracking-widest">
                                 {record.id}
                             </div>
-                            <DialogTitle className="text-[20px] font-bold text-slate-900 tracking-tight">
+                            <DialogTitle className="text-[20px] font-bold text-slate-900 dark:text-foreground tracking-tight">
                                 Bill Details
                             </DialogTitle>
                         </div>
@@ -40,7 +40,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         {/* Vendor Section */}
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Vendor</p>
-                            <p className="text-[15px] font-bold text-slate-800 leading-tight">
+                            <p className="text-[15px] font-bold text-slate-800 dark:text-foreground leading-tight">
                                 {record.vendorName}
                             </p>
                         </div>
@@ -48,7 +48,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         {/* Project Section */}
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Project</p>
-                            <p className="text-[15px] font-bold text-slate-800 leading-tight">
+                            <p className="text-[15px] font-bold text-slate-800 dark:text-foreground leading-tight">
                                 {record.projectName}
                             </p>
                         </div>
@@ -56,7 +56,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         {/* Client Section */}
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Client</p>
-                            <p className="text-[14px] font-bold text-slate-800 leading-tight">
+                            <p className="text-[14px] font-bold text-slate-800 dark:text-foreground leading-tight">
                                 {record.clientName}
                             </p>
                         </div>
@@ -64,7 +64,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         {/* Month Section */}
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Month</p>
-                            <p className="text-[14px] font-bold text-slate-800 leading-tight">
+                            <p className="text-[14px] font-bold text-slate-800 dark:text-foreground leading-tight">
                                 {record.month}
                             </p>
                         </div>
@@ -72,7 +72,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         {/* Total Trips Section */}
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Total Trips</p>
-                            <p className="text-[16px] font-bold text-slate-800 tabular-nums">
+                            <p className="text-[16px] font-bold text-slate-800 dark:text-foreground tabular-nums">
                                 {record.totalTrips || "—"}
                             </p>
                         </div>
@@ -80,7 +80,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         {/* Rate Section */}
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Rate</p>
-                            <p className="text-[16px] font-bold text-slate-800 tabular-nums">
+                            <p className="text-[16px] font-bold text-slate-800 dark:text-foreground tabular-nums">
                                 ₹{record.rate.toLocaleString()}
                             </p>
                         </div>
@@ -88,7 +88,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         {/* Gross Amount Section */}
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Gross Amount</p>
-                            <p className="text-[16px] font-bold text-slate-800 tabular-nums">
+                            <p className="text-[16px] font-bold text-slate-800 dark:text-foreground tabular-nums">
                                 ₹{record.grossAmount.toLocaleString()}
                             </p>
                         </div>
@@ -112,7 +112,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         {/* Net Payable Section - Prominent */}
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Net Payable</p>
-                            <p className="text-[28px] font-black text-slate-900 tracking-tighter tabular-nums leading-none">
+                            <p className="text-[28px] font-black text-slate-900 dark:text-foreground tracking-tighter tabular-nums leading-none">
                                 ₹{record.netAmount.toLocaleString()}
                             </p>
                         </div>
@@ -124,10 +124,10 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         <Badge
                             className={`
                                 px-4 py-1.5 text-[10px] font-black tracking-widest uppercase border-none rounded-lg shadow-none
-                                ${record.status === 'PAID' ? 'bg-emerald-100 text-emerald-700' :
-                                    record.status === 'APPROVED' ? 'bg-emerald-100 text-emerald-700' :
-                                        record.status === 'VERIFIED' ? 'bg-blue-100 text-blue-700' :
-                                            'bg-orange-100 text-orange-700'}
+                                ${record.status === 'PAID' ? 'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-500' :
+                                    record.status === 'APPROVED' ? 'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-500' :
+                                        record.status === 'VERIFIED' ? 'bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-500' :
+                                            'bg-orange-100 dark:bg-orange-500/15 text-orange-700 dark:text-orange-500'}
                             `}
                         >
                             {record.status}

@@ -30,7 +30,7 @@ export default function BillingTable({ records }: BillingTableProps) {
                 <div className="overflow-x-auto">
                     <Table>
                         <TableHeader>
-                            <TableRow className="hover:bg-transparent border-none bg-slate-50/40">
+                            <TableRow className="hover:bg-transparent border-none bg-slate-50/40 dark:bg-muted/40">
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">ID</TableHead>
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Vendor</TableHead>
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Project</TableHead>
@@ -74,10 +74,10 @@ export default function BillingTable({ records }: BillingTableProps) {
                                         <Badge
                                             className={`
                                                 px-2.5 py-0.5 text-[9px] font-bold tracking-wider uppercase border-none rounded shadow-none whitespace-nowrap
-                                                ${record.status === 'PAID' ? 'bg-[#E8F5E9] text-[#2E7D32]' :
-                                                    record.status === 'APPROVED' ? 'bg-[#E8F5E9] text-[#2E7D32]' :
-                                                        record.status === 'VERIFIED' ? 'bg-[#E3F2FD] text-[#1565C0]' :
-                                                            'bg-[#FFF3E0] text-[#EF6C00]'}
+                                                ${record.status === 'PAID' ? 'bg-[#E8F5E9] dark:bg-emerald-500/15 text-[#2E7D32] dark:text-emerald-500' :
+                                                    record.status === 'APPROVED' ? 'bg-[#E8F5E9] dark:bg-emerald-500/15 text-[#2E7D32] dark:text-emerald-500' :
+                                                        record.status === 'VERIFIED' ? 'bg-[#E3F2FD] dark:bg-blue-500/15 text-[#1565C0] dark:text-blue-500' :
+                                                            'bg-[#FFF3E0] dark:bg-orange-500/15 text-[#EF6C00] dark:text-orange-500'}
                                             `}
                                         >
                                             {record.status}

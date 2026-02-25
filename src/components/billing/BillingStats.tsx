@@ -31,7 +31,7 @@ export default function BillingStats({ records }: BillingStatsProps) {
         {
             label: "PAID",
             value: `${totalPaid}/${records.length}`,
-            color: "text-emerald-600",
+            color: "text-emerald-600 dark:text-emerald-400",
             isBadge: true
         }
     ];
@@ -39,11 +39,11 @@ export default function BillingStats({ records }: BillingStatsProps) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {stats.map((stat, i) => (
-                <Card key={i} className="p-4 bg-white border border-border/60 shadow-none transition-all duration-300 hover:border-primary/40 hover:shadow-md group cursor-default">
+                <Card key={i} className="p-4 bg-white dark:bg-card border border-border/60 shadow-none transition-all duration-300 hover:border-primary/40 hover:shadow-md group cursor-default">
                     <p className="text-[10px] font-bold text-muted-foreground tracking-widest uppercase mb-1">{stat.label}</p>
                     <div className="flex items-center justify-between">
                         {stat.isBadge ? (
-                            <span className={`text-2xl font-black ${stat.color} bg-emerald-500/10 px-3 py-0.5 rounded-md`}>
+                            <span className={`text-2xl font-black ${stat.color} bg-emerald-500/10 dark:bg-emerald-500/15 px-3 py-0.5 rounded-md`}>
                                 {stat.value}
                             </span>
                         ) : (

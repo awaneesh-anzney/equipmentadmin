@@ -69,7 +69,7 @@ export default function BidActivityChart({ data = DEFAULT_DATA }: BidActivityCha
                         content={
                             <ChartTooltipContent
                                 indicator="dot"
-                                className="rounded-lg border border-border bg-white shadow-md text-[12px]"
+                                className="rounded-lg border border-border bg-white dark:bg-card shadow-md text-[12px]"
                                 labelClassName="font-bold text-foreground"
                             />
                         }

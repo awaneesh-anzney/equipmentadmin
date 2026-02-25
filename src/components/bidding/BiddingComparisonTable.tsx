@@ -31,13 +31,13 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
             className="rounded-xl border border-border/60 shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/30 hover:shadow-md"
             style={{ borderTop: "4px solid var(--primary)" }}
         >
-            <div className="p-5 border-b border-border/40 bg-white flex justify-between items-center">
+            <div className="p-5 border-b border-border/40 bg-white dark:bg-card flex justify-between items-center">
                 <div className="flex flex-col gap-0.5">
                     <h3 className="text-[17.5px] font-bold text-foreground">Live Bid Comparison</h3>
                     {subtitle && <p className="text-[12.5px] text-muted-foreground/80 font-medium italic">{subtitle}</p>}
                 </div>
                 {bids.length > 0 && (
-                    <Badge variant="outline" className="text-[11px] font-bold bg-slate-50 border-slate-200 text-slate-500 rounded-lg">
+                    <Badge variant="outline" className="text-[11px] font-bold bg-slate-50 dark:bg-muted border-slate-200 dark:border-border text-slate-500 dark:text-muted-foreground rounded-lg">
                         {bids.length} BIDS RECEIVED
                     </Badge>
                 )}
@@ -46,7 +46,7 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
             <div className="overflow-x-auto">
                 <Table>
                     <TableHeader>
-                        <TableRow className="hover:bg-transparent border-none bg-slate-50/40">
+                        <TableRow className="hover:bg-transparent border-none bg-slate-50/40 dark:bg-muted/40">
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Vendor</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Equipment</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-center">Qty</TableHead>
@@ -64,7 +64,7 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                             <TableRow>
                                 <TableCell colSpan={10} className="py-20 text-center border-none">
                                     <div className="flex flex-col items-center justify-center gap-2">
-                                        <div className="h-12 w-12 rounded-full bg-slate-50 flex items-center justify-center mb-2">
+                                        <div className="h-12 w-12 rounded-full bg-slate-50 dark:bg-muted flex items-center justify-center mb-2">
                                             <Star className="h-6 w-6 text-slate-200" />
                                         </div>
                                         <h3 className="text-[15px] font-bold text-slate-400 uppercase tracking-widest">No matching bids</h3>
@@ -109,10 +109,10 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                                         <Badge
                                             className={`
                                                 px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase border-none rounded shadow-sm
-                                                ${bid.status === 'ACCEPTED' ? 'bg-[#E8F5E9] text-[#2E7D32]' :
-                                                    bid.status === 'PARTIAL' ? 'bg-[#E3F2FD] text-[#1565C0]' :
-                                                        bid.status === 'REJECTED' ? 'bg-[#FFEBEE] text-[#C62828]' :
-                                                            'bg-[#FFF3E0] text-[#EF6C00]'}
+                                                ${bid.status === 'ACCEPTED' ? 'bg-[#E8F5E9] dark:bg-emerald-500/15 text-[#2E7D32] dark:text-emerald-500' :
+                                                    bid.status === 'PARTIAL' ? 'bg-[#E3F2FD] dark:bg-blue-500/15 text-[#1565C0] dark:text-blue-500' :
+                                                        bid.status === 'REJECTED' ? 'bg-[#FFEBEE] dark:bg-rose-500/15 text-[#C62828] dark:text-rose-500' :
+                                                            'bg-[#FFF3E0] dark:bg-orange-500/15 text-[#EF6C00] dark:text-orange-500'}
                                             `}
                                         >
                                             {bid.status}
@@ -133,7 +133,7 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                                                         variant="ghost"
                                                         size="icon"
                                                         onClick={() => handleReject(bid.vendorName)}
-                                                        className="h-8 w-8 text-rose-500 hover:bg-rose-50 rounded-full"
+                                                        className="h-8 w-8 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-500/10 rounded-full"
                                                     >
                                                         <XCircle className="h-5 w-5" />
                                                     </Button>

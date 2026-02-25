@@ -29,7 +29,7 @@ export default function OperationsManagementContainer() {
                 <Button
                     variant="outline"
                     size="sm"
-                    className="h-9 gap-2 border-border/60 font-bold text-[12px] uppercase tracking-wide transition-all duration-200 hover:border-primary hover:bg-white"
+                    className="h-9 gap-2 border-border/60 font-bold text-[12px] uppercase tracking-wide transition-all duration-200 hover:border-primary hover:bg-white dark:hover:bg-muted"
                 >
                     <Calendar size={14} />
                     History
@@ -37,7 +37,7 @@ export default function OperationsManagementContainer() {
                 <Button
                     variant="outline"
                     size="sm"
-                    className="h-9 gap-2 border-border/60 font-bold text-[12px] uppercase tracking-wide transition-all duration-200 hover:border-primary hover:bg-white"
+                    className="h-9 gap-2 border-border/60 font-bold text-[12px] uppercase tracking-wide transition-all duration-200 hover:border-primary hover:bg-white dark:hover:bg-muted"
                 >
                     <Download size={14} />
                     Export Log
@@ -48,7 +48,7 @@ export default function OperationsManagementContainer() {
             <div className="flex flex-wrap items-center gap-3">
                 <div className="w-[220px]">
                     <Select onValueChange={setProjectFilter} defaultValue="all">
-                        <SelectTrigger className="h-9 bg-white border-border/60 text-[13px] font-semibold transition-all hover:border-primary/50">
+                        <SelectTrigger className="h-9 bg-white dark:bg-card border-border/60 text-[13px] font-semibold transition-all hover:border-primary/50">
                             <SelectValue placeholder="All Projects" />
                         </SelectTrigger>
                         <SelectContent>

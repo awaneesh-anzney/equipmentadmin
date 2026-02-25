@@ -23,7 +23,7 @@ export default function RequirementDetailsModal({ isOpen, onClose, requirement }
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-2xl max-h-[95vh] flex flex-col p-8 border-none bg-white shadow-2xl rounded-xl gap-6 overflow-y-auto [&>button]:right-4 [&>button]:top-4 [&>button]:opacity-40 hover:[&>button]:opacity-100 [&>button]:bg-transparent [&>button]:border-none [&>button]:shadow-none [&>button]:h-6 [&>button]:w-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button>svg]:h-4 [&>button>svg]:w-4 focus-visible:outline-none">
+            <DialogContent className="max-w-2xl max-h-[95vh] flex flex-col p-8 border-none bg-white dark:bg-card shadow-2xl rounded-xl gap-6 overflow-y-auto [&>button]:right-4 [&>button]:top-4 [&>button]:opacity-40 hover:[&>button]:opacity-100 [&>button]:bg-transparent [&>button]:border-none [&>button]:shadow-none [&>button]:h-6 [&>button]:w-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button>svg]:h-4 [&>button>svg]:w-4 focus-visible:outline-none">
                 <DialogHeader className="p-0 border-none shrink-0 mb-2">
                     <DialogTitle className="text-xl font-bold tracking-tight text-foreground">Requirement Details</DialogTitle>
                 </DialogHeader>

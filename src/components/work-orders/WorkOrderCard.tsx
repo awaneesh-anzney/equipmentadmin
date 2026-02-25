@@ -21,19 +21,19 @@ export default function WorkOrderCard({ workOrder, onView }: WorkOrderCardProps)
     };
 
     return (
-        <Card className="bg-white rounded-xl border border-border/50 shadow-sm transition-all duration-300 p-6 flex flex-col gap-6 group relative overflow-hidden hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
+        <Card className="bg-white dark:bg-card rounded-xl border border-border/50 shadow-sm transition-all duration-300 p-6 flex flex-col gap-6 group relative overflow-hidden hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
             {/* Top Row: ID & Status */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <div className="bg-slate-50 border border-slate-200 px-2.5 py-1 rounded text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                    <div className="bg-slate-50 dark:bg-muted border border-slate-200 dark:border-border px-2.5 py-1 rounded text-[11px] font-bold text-slate-500 dark:text-muted-foreground uppercase tracking-wider">
                         {workOrder.id}
                     </div>
                     <Badge
                         className={cn(
                             "px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider border-none rounded",
-                            workOrder.status === 'ACTIVE' ? "bg-amber-100 text-amber-700" :
-                                workOrder.status === 'PENDING' ? "bg-slate-100 text-slate-500" :
-                                    "bg-slate-100 text-slate-400"
+                            workOrder.status === 'ACTIVE' ? "bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-500" :
+                                workOrder.status === 'PENDING' ? "bg-slate-100 dark:bg-muted text-slate-500 dark:text-muted-foreground" :
+                                    "bg-slate-100 dark:bg-muted text-slate-400 dark:text-muted-foreground"
                         )}
                     >
                         {workOrder.status}
@@ -44,7 +44,7 @@ export default function WorkOrderCard({ workOrder, onView }: WorkOrderCardProps)
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="h-8 bg-slate-50 hover:bg-white text-slate-600 border border-slate-200 hover:border-primary/40 shadow-sm rounded-lg text-[12px] font-bold gap-2 px-3 transition-all"
+                        className="h-8 bg-slate-50 dark:bg-muted hover:bg-white dark:hover:bg-muted/80 text-slate-600 dark:text-foreground border border-slate-200 dark:border-border hover:border-primary/40 shadow-sm rounded-lg text-[12px] font-bold gap-2 px-3 transition-all"
                         onClick={() => onView(workOrder)}
                     >
                         <Eye className="h-4 w-4" />

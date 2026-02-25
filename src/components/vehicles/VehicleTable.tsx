@@ -15,13 +15,13 @@ export default function VehicleTable({ vehicles }: VehicleTableProps) {
             className="rounded-xl border border-border/60 shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/30 hover:shadow-md"
             style={{ borderTop: "4px solid var(--primary)" }}
         >
-            <div className="p-5 border-b border-border/40 bg-white flex justify-between items-center">
+            <div className="p-5 border-b border-border/40 bg-white dark:bg-card flex justify-between items-center">
                 <div className="flex flex-col gap-0.5">
                     <h3 className="text-[17.5px] font-bold text-foreground">Fleet Inventory</h3>
                     <p className="text-[12.5px] text-muted-foreground/80 font-medium italic">Detailed equipment tracking</p>
                 </div>
                 {vehicles.length > 0 && (
-                    <Badge variant="outline" className="text-[11px] font-bold bg-slate-50 border-slate-200 text-slate-500 rounded-lg">
+                    <Badge variant="outline" className="text-[11px] font-bold bg-slate-50 dark:bg-muted border-slate-200 dark:border-border text-slate-500 dark:text-muted-foreground rounded-lg">
                         {vehicles.length} VEHICLES REGISTERED
                     </Badge>
                 )}
@@ -30,7 +30,7 @@ export default function VehicleTable({ vehicles }: VehicleTableProps) {
             <div className="overflow-x-auto">
                 <Table>
                     <TableHeader>
-                        <TableRow className="hover:bg-transparent border-none bg-slate-50/40">
+                        <TableRow className="hover:bg-transparent border-none bg-slate-50/40 dark:bg-muted/40">
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Vehicle #</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Vendor</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Driver</TableHead>
@@ -54,16 +54,16 @@ export default function VehicleTable({ vehicles }: VehicleTableProps) {
                                     <span className="text-[13.5px] font-semibold text-muted-foreground">{vehicle.driverName}</span>
                                 </TableCell>
                                 <TableCell className="px-5 py-4">
-                                    <span className="text-[13px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">{vehicle.category} ({vehicle.capacity})</span>
+                                    <span className="text-[13px] font-bold text-slate-600 dark:text-foreground bg-slate-100 dark:bg-muted px-2 py-0.5 rounded-md">{vehicle.category} ({vehicle.capacity})</span>
                                 </TableCell>
                                 <TableCell className="px-5 py-4">
                                     <span className="text-[13px] font-semibold text-primary">{vehicle.assignedProject || "—"}</span>
                                 </TableCell>
                                 <TableCell className="px-5 py-4">
-                                    <span className="text-[12.5px] font-bold text-slate-500">{vehicle.fitnessExpiry}</span>
+                                    <span className="text-[12.5px] font-bold text-slate-500 dark:text-muted-foreground">{vehicle.fitnessExpiry}</span>
                                 </TableCell>
                                 <TableCell className="px-5 py-4">
-                                    <span className="text-[12.5px] font-bold text-slate-500">{vehicle.insuranceExpiry}</span>
+                                    <span className="text-[12.5px] font-bold text-slate-500 dark:text-muted-foreground">{vehicle.insuranceExpiry}</span>
                                 </TableCell>
                                 <TableCell className="px-5 py-4">
                                     <Badge
@@ -73,7 +73,7 @@ export default function VehicleTable({ vehicles }: VehicleTableProps) {
                                                 vehicle.status === 'BREAKDOWN' ? 'bg-rose-500/15 text-rose-700' :
                                                     vehicle.status === 'STANDBY' ? 'bg-amber-500/15 text-amber-700' :
                                                         vehicle.status === 'PENDING' ? 'bg-sky-500/15 text-sky-700' :
-                                                            'bg-slate-200 text-slate-500'}
+                                                            'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-muted-foreground'}
                                         `}
                                     >
                                         {vehicle.status}

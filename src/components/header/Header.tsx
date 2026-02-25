@@ -1,9 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Bell, Search, Settings, Menu } from "lucide-react";
+import { Bell, Search, Settings, Menu, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 interface HeaderProps {
     onMobileMenuToggle: () => void;
@@ -28,6 +30,12 @@ function getFormattedDate() {
 export default function Header({ onMobileMenuToggle }: HeaderProps) {
     const pathname = usePathname();
     const meta = PAGE_META[pathname] ?? { title: "Admin", date: false };
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     return (
         <header className="flex h-16 shrink-0 items-center gap-4 border-b border-border bg-white px-6 dark:bg-card">
@@ -75,6 +83,16 @@ export default function Header({ onMobileMenuToggle }: HeaderProps) {
 
             {/* Action icons */}
             <div className="flex items-center gap-0.5">
+                {mounted && (
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                        className="h-9 w-9 rounded-full text-muted-foreground hover:text-foreground"
+                    >
+                        {theme === "dark" ? <Sun size={16} strokeWidth={2} /> : <Moon size={16} strokeWidth={2} />}
+                    </Button>
+                )}
                 <Button
                     variant="ghost"
                     size="icon"

@@ -104,7 +104,7 @@ export default function FleetStatusChart({
                                 transform: "translateX(0)",
                             }}
                         >
-                            <div className="rounded-lg border border-border bg-white px-3 py-1.5 shadow-md whitespace-nowrap">
+                            <div className="rounded-lg border border-border bg-white dark:bg-card px-3 py-1.5 shadow-md whitespace-nowrap">
                                 <p className="text-[11px] font-bold text-foreground leading-none">{hovered.name}</p>
                                 <p className="mt-0.5 text-[11px] font-semibold leading-none text-primary">
                                     {hovered.value} vehicles · {pct}%

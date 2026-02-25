@@ -17,10 +17,13 @@ export default function WorkOrderDetailsModal({ workOrder, open, onClose }: Work
     return (
         <Dialog open={open} onOpenChange={onClose}>
             <DialogContent className="max-w-xl p-0 overflow-hidden rounded-2xl border-none shadow-2xl flex flex-col gap-0 [&>button]:right-6 [&>button]:top-8 [&>button]:opacity-40 hover:[&>button]:opacity-100 [&>button]:bg-transparent [&>button]:border-none [&>button]:shadow-none [&>button]:h-6 [&>button]:w-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button>svg]:h-5 [&>button>svg]:w-5 focus-visible:outline-none">
-                <div className="bg-white p-8">
+                <DialogHeader className="sr-only">
+                    <DialogTitle>Work Order Details</DialogTitle>
+                </DialogHeader>
+                <div className="bg-white dark:bg-card p-8">
                     <div className="flex justify-between items-start mb-8">
                         <div className="flex items-center gap-4">
-                            <div className="bg-slate-50 border border-slate-200 px-3 py-1.5 rounded text-[12px] font-bold text-slate-500 uppercase tracking-widest">
+                            <div className="bg-slate-50 dark:bg-muted border border-slate-200 dark:border-border px-3 py-1.5 rounded text-[12px] font-bold text-slate-500 dark:text-muted-foreground uppercase tracking-widest">
                                 {workOrder.id}
                             </div>
                             <h2 className="text-[20px] font-bold text-foreground">Work Order</h2>
@@ -39,7 +42,7 @@ export default function WorkOrderDetailsModal({ workOrder, open, onClose }: Work
 
                         <div className="flex flex-col gap-1.5">
                             <span className="text-[11px] uppercase tracking-widest font-bold text-muted-foreground/60">Status</span>
-                            <Badge className="w-fit px-3 py-1 bg-amber-100 text-amber-700 font-bold border-none">
+                            <Badge className="w-fit px-3 py-1 bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-500 font-bold border-none">
                                 {workOrder.status}
                             </Badge>
                         </div>

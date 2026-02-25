@@ -31,7 +31,7 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
 
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-2xl max-h-[95vh] flex flex-col p-8 border-none bg-white shadow-2xl rounded-xl gap-6 overflow-y-auto [&>button]:right-4 [&>button]:top-4 [&>button]:opacity-40 hover:[&>button]:opacity-100 [&>button]:bg-transparent [&>button]:border-none [&>button]:shadow-none [&>button]:h-6 [&>button]:w-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button>svg]:h-4 [&>button>svg]:w-4 focus-visible:outline-none">
+            <DialogContent className="max-w-2xl max-h-[95vh] flex flex-col p-8 border-none bg-white dark:bg-card shadow-2xl rounded-xl gap-6 overflow-y-auto [&>button]:right-4 [&>button]:top-4 [&>button]:opacity-40 hover:[&>button]:opacity-100 [&>button]:bg-transparent [&>button]:border-none [&>button]:shadow-none [&>button]:h-6 [&>button]:w-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button>svg]:h-4 [&>button>svg]:w-4 focus-visible:outline-none">
                 <DialogHeader className="p-0 border-none shrink-0 mb-2">
                     <DialogTitle className="text-xl font-bold tracking-tight text-foreground">New Requirement</DialogTitle>
                 </DialogHeader>
@@ -41,20 +41,20 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Project Name</Label>
-                            <Input placeholder="e.g. Pakri Barwadih Mine" className="h-10 border-border/50 bg-slate-50/50 focus:bg-white hover:border-primary/40 focus:border-primary transition-all duration-200" />
+                            <Input placeholder="e.g. Pakri Barwadih Mine" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Client Name</Label>
-                            <Input placeholder="e.g. NTPC Ltd" className="h-10 border-border/50 bg-slate-50/50 focus:bg-white hover:border-primary/40 focus:border-primary transition-all duration-200" />
+                            <Input placeholder="e.g. NTPC Ltd" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Site Location</Label>
-                            <Input placeholder="e.g. Jharkhand" className="h-10 border-border/50 bg-slate-50/50 focus:bg-white hover:border-primary/40 focus:border-primary transition-all duration-200" />
+                            <Input placeholder="e.g. Jharkhand" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Material Type</Label>
                             <Select>
-                                <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 hover:border-primary/40 focus:border-primary transition-all duration-200">
+                                <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 hover:border-primary/40 focus:border-primary transition-all duration-200">
                                     <SelectValue placeholder="Select" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -93,7 +93,7 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
                                     <div className="md:col-span-3 space-y-1.5">
                                         <Label className="text-[10px] font-semibold text-muted-foreground/70 uppercase tracking-widest">Category</Label>
                                         <Select>
-                                            <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
+                                            <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
                                                 <SelectValue placeholder="Select" />
                                             </SelectTrigger>
                                             <SelectContent>
@@ -105,16 +105,16 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
                                     </div>
                                     <div className="md:col-span-3 space-y-1.5">
                                         <Label className="text-[10px] font-semibold text-muted-foreground/70 uppercase tracking-widest">Capacity</Label>
-                                        <Input placeholder="e.g. 20 Ton" className="h-10 border-border/50 bg-slate-50/50 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium" />
+                                        <Input placeholder="e.g. 20 Ton" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium" />
                                     </div>
                                     <div className="md:col-span-2 space-y-1.5">
                                         <Label className="text-[10px] font-semibold text-muted-foreground/70 uppercase tracking-widest">Quantity</Label>
-                                        <Input placeholder="e.g. 10" className="h-10 border-border/50 bg-slate-50/50 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium" />
+                                        <Input placeholder="e.g. 10" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium" />
                                     </div>
                                     <div className="md:col-span-3 space-y-1.5">
                                         <Label className="text-[10px] font-semibold text-muted-foreground/70 uppercase tracking-widest">Rate Type</Label>
                                         <Select>
-                                            <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
+                                            <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
                                                 <SelectValue placeholder="Select" />
                                             </SelectTrigger>
                                             <SelectContent>
@@ -146,14 +146,14 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Reporting Time</Label>
                             <div className="relative">
-                                <Input type="time" className="h-10 border-border/50 bg-slate-50/50 focus:bg-white hover:border-primary/40 focus:border-primary transition-all duration-200 pl-3 pr-10 font-medium" />
+                                <Input type="time" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200 pl-3 pr-10 font-medium" />
                                 <Clock className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/40 pointer-events-none" />
                             </div>
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Duty Hours</Label>
                             <Select>
-                                <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
+                                <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
                                     <SelectValue placeholder="Select" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -166,7 +166,7 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Diesel By</Label>
                             <Select>
-                                <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
+                                <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
                                     <SelectValue placeholder="Select" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -179,7 +179,7 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Payment Cycle</Label>
                             <Select>
-                                <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
+                                <SelectTrigger className="w-full h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium">
                                     <SelectValue placeholder="Select" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -191,11 +191,11 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Start Date</Label>
-                            <Input type="date" className="h-10 border-border/50 bg-slate-50/50 focus:bg-white hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium" />
+                            <Input type="date" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium" />
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">End Date</Label>
-                            <Input type="date" className="h-10 border-border/50 bg-slate-50/50 focus:bg-white hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium" />
+                            <Input type="date" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200 font-medium" />
                         </div>
                     </div>
                 </div>

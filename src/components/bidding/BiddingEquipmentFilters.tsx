@@ -19,14 +19,14 @@ export default function BiddingEquipmentFilters({ filters, selectedCategory, onS
                         "px-5 py-2 rounded-lg text-[12.5px] font-bold transition-all duration-300 border-b-2",
                         selectedCategory === "all"
                             ? "border-primary bg-primary/[0.04] text-primary shadow-sm"
-                            : "border-transparent bg-white text-muted-foreground hover:bg-slate-50 hover:border-slate-300"
+                            : "border-transparent bg-white dark:bg-card text-muted-foreground hover:bg-slate-50 dark:hover:bg-muted/80 hover:border-slate-300 dark:hover:border-border"
                     )}
                 >
                     <span className="flex items-center gap-2">
                         All
                         <span className={cn(
                             "text-[10px] px-1.5 py-0.5 rounded-full",
-                            selectedCategory === "all" ? "bg-primary text-white" : "bg-slate-100"
+                            selectedCategory === "all" ? "bg-primary text-white" : "bg-slate-100 dark:bg-muted"
                         )}>
                             {filters.reduce((acc, f) => acc + f.count, 0)}
                         </span>
@@ -40,14 +40,14 @@ export default function BiddingEquipmentFilters({ filters, selectedCategory, onS
                             "px-5 py-2 rounded-lg text-[12.5px] font-bold transition-all duration-300 border-b-2",
                             selectedCategory === f.category
                                 ? "border-primary bg-primary/[0.04] text-primary shadow-sm"
-                                : "border-transparent bg-white text-muted-foreground hover:bg-slate-50 hover:border-slate-300"
+                                : "border-transparent bg-white dark:bg-card text-muted-foreground hover:bg-slate-50 dark:hover:bg-muted/80 hover:border-slate-300 dark:hover:border-border"
                         )}
                     >
                         <span className="flex items-center gap-2">
                             {f.category}
                             <span className={cn(
                                 "text-[10px] px-1.5 py-0.5 rounded-full transition-colors",
-                                selectedCategory === f.category ? "bg-primary text-white" : "bg-slate-100"
+                                selectedCategory === f.category ? "bg-primary text-white" : "bg-slate-100 dark:bg-muted"
                             )}>
                                 {f.count}
                             </span>

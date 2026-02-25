@@ -108,7 +108,7 @@ export default function RevenueTrendChart({
                             <ChartTooltipContent
                                 indicator="dot"
                                 labelClassName="font-bold text-foreground"
-                                className="rounded-lg border border-border bg-white shadow-md text-[11px]"
+                                className="rounded-lg border border-border bg-white dark:bg-card shadow-md text-[11px]"
                             />
                         }
                     />

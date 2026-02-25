@@ -19,7 +19,7 @@ export default function OperationsTable({ operations }: OperationsTableProps) {
             <div className="overflow-x-auto">
                 <Table>
                     <TableHeader>
-                        <TableRow className="hover:bg-transparent border-none bg-slate-50/40">
+                        <TableRow className="hover:bg-transparent border-none bg-slate-50/40 dark:bg-muted/40">
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Vehicle #</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Vendor</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Project</TableHead>
@@ -55,7 +55,7 @@ export default function OperationsTable({ operations }: OperationsTableProps) {
                                                 op.status === 'ABSENT' ? 'bg-rose-500/15 text-rose-700' :
                                                     op.status === 'BREAKDOWN' ? 'bg-rose-500/15 text-rose-700' :
                                                         op.status === 'STANDBY' ? 'bg-amber-500/15 text-amber-700' :
-                                                            'bg-slate-200 text-slate-500'}
+                                                            'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-muted-foreground'}
                                         `}
                                     >
                                         {op.status}

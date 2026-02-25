@@ -15,11 +15,11 @@ export default function VehicleStats({ vehicles }: VehicleStatsProps) {
     const total = vehicles.length;
 
     const stats = [
-        { label: "ACTIVE", value: active, color: "text-emerald-600", bg: "bg-emerald-50" },
-        { label: "BREAKDOWN", value: breakdown, color: "text-rose-600", bg: "bg-rose-50" },
-        { label: "STANDBY", value: standby, color: "text-amber-600", bg: "bg-amber-50" },
-        { label: "PENDING", value: pending, color: "text-sky-600", bg: "bg-sky-50" },
-        { label: "TOTAL", value: total, color: "text-slate-900", bg: "bg-slate-50" },
+        { label: "ACTIVE", value: active, color: "text-emerald-600 dark:text-emerald-500", bg: "bg-emerald-50" },
+        { label: "BREAKDOWN", value: breakdown, color: "text-rose-600 dark:text-rose-500", bg: "bg-rose-50" },
+        { label: "STANDBY", value: standby, color: "text-amber-600 dark:text-amber-500", bg: "bg-amber-50" },
+        { label: "PENDING", value: pending, color: "text-sky-600 dark:text-sky-500", bg: "bg-sky-50" },
+        { label: "TOTAL", value: total, color: "text-slate-900 dark:text-foreground", bg: "bg-slate-50" },
     ];
 
     return (

@@ -13,7 +13,10 @@ import {
     LogOut,
     Truck,
     ChevronRight,
+    ChevronLeft,
+    Menu
 } from "lucide-react";
+import { useState } from "react";
 
 const NAV_ITEMS = [
     { label: "Dashboard", icon: LayoutGrid, href: "/dashboard" },
@@ -31,33 +34,59 @@ interface SidebarProps {
 
 export default function Sidebar({ isOpen }: SidebarProps) {
     const pathname = usePathname();
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
     return (
         <aside
             className={[
-                "fixed inset-y-0 left-0 z-50 w-[280px] shrink-0",
-                "dark bg-sidebar text-sidebar-foreground",
-                "border-r border-sidebar-border",
+                "fixed inset-y-0 left-0 z-50 shrink-0",
+                isCollapsed ? "w-[80px]" : "w-[260px]",
+                "bg-sidebar text-sidebar-foreground",
+                "border-r border-sidebar-border shadow-sm",
                 "flex flex-col overflow-hidden",
-                "transition-transform duration-200 ease-in-out",
+                "transition-all duration-300 ease-in-out",
                 "lg:relative lg:translate-x-0",
                 isOpen ? "translate-x-0" : "-translate-x-full",
             ].join(" ")}
         >
             {/* ─── Brand area ─────────────────────────────── */}
-            <div className="flex h-16 shrink-0 items-center gap-3 border-b border-sidebar-border px-5">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary shadow-lg shadow-primary/30">
-                    <Truck size={16} className="text-primary-foreground" />
+            <div className={`flex h-16 shrink-0 items-center border-b border-sidebar-border ${isCollapsed ? 'justify-center px-0' : 'justify-between px-5'}`}>
+                <div className={`flex items-center ${isCollapsed ? 'gap-0' : 'gap-3'}`}>
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-primary shadow-lg shadow-sidebar-primary/30">
+                        <Truck size={16} className="text-sidebar-primary-foreground" />
+                    </div>
+                    {!isCollapsed && (
+                        <div className="min-w-0 transition-opacity duration-300">
+                            <p className="truncate text-[14px] font-extrabold uppercase leading-none tracking-wide text-foreground">
+                                Equipment Share
+                            </p>
+                            <p className="mt-0.5 text-[10px] uppercase leading-none tracking-widest text-muted-foreground">
+                                Fleet Management
+                            </p>
+                        </div>
+                    )}
                 </div>
-                <div className="min-w-0">
-                    <p className="truncate text-[14px] font-extrabold uppercase leading-none tracking-wide text-white">
-                        Equipment Share
-                    </p>
-                    <p className="mt-0.5 text-[10px] uppercase leading-none tracking-widest text-muted-foreground">
-                        Fleet Management
-                    </p>
-                </div>
+                {!isCollapsed && (
+                    <button
+                        onClick={() => setIsCollapsed(true)}
+                        className="hidden lg:flex shrink-0 items-center justify-center rounded-lg p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
+                    >
+                        <ChevronLeft size={16} />
+                    </button>
+                )}
             </div>
+
+            {/* ─── Expand Button (Visible when collapsed) ─── */}
+            {isCollapsed && (
+                <div className="flex shrink-0 items-center justify-center pt-4 pb-2">
+                    <button
+                        onClick={() => setIsCollapsed(false)}
+                        className="hidden lg:flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
+                    >
+                        <Menu size={18} />
+                    </button>
+                </div>
+            )}
 
             {/* ─── Navigation ─────────────────────────────── */}
             <nav className="flex-1 space-y-0.5 overflow-y-auto px-3 py-4">
@@ -68,22 +97,25 @@ export default function Sidebar({ isOpen }: SidebarProps) {
                             key={href}
                             href={href}
                             className={[
-                                "group flex items-center justify-between rounded-lg px-3 py-2.5",
-                                "text-[14px] font-semibold transition-all duration-150",
+                                "group flex items-center rounded-lg py-2.5 transition-all duration-150",
+                                isCollapsed ? "justify-center px-0 mx-2" : "justify-between px-3",
                                 active
-                                    ? "bg-primary/15 text-primary"
-                                    : "text-sidebar-foreground/60 hover:bg-white/5 hover:text-sidebar-foreground",
+                                    ? "bg-primary/15 text-primary shadow-sm"
+                                    : "text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-foreground",
                             ].join(" ")}
+                            title={isCollapsed ? label : undefined}
                         >
-                            <span className="flex items-center gap-3">
+                            <span className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'}`}>
                                 <Icon
                                     size={18}
                                     strokeWidth={active ? 2.5 : 2}
-                                    className={active ? "text-primary" : "text-sidebar-foreground/40 transition-colors group-hover:text-sidebar-foreground"}
+                                    className={active ? "text-primary" : "text-sidebar-foreground/50 transition-colors group-hover:text-sidebar-foreground"}
                                 />
-                                {label}
+                                {!isCollapsed && (
+                                    <span className="text-[14px] font-semibold">{label}</span>
+                                )}
                             </span>
-                            {active && (
+                            {!isCollapsed && active && (
                                 <ChevronRight size={13} className="shrink-0 text-primary/50" />
                             )}
                         </Link>
@@ -92,20 +124,25 @@ export default function Sidebar({ isOpen }: SidebarProps) {
             </nav>
 
             {/* ─── User section ───────────────────────────── */}
-            <div className="shrink-0 border-t border-sidebar-border bg-black/10 px-4 py-3">
-                <div className="mb-3 flex items-center gap-3 px-1">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-sidebar-border bg-sidebar-accent text-[11px] font-black text-white">
+            <div className={`shrink-0 border-t border-sidebar-border px-3 py-3 bg-muted/20 ${isCollapsed ? 'block text-center' : ''}`}>
+                <div className={`mb-3 flex items-center ${isCollapsed ? 'justify-center' : 'gap-3 px-1'}`}>
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-sidebar-border bg-sidebar-accent text-[11px] font-black text-sidebar-foreground">
                         RK
                     </div>
-                    <div className="min-w-0 flex-1">
-                        <p className="truncate text-[13px] font-semibold leading-none text-white">Rajesh Kumar</p>
-                        <p className="mt-0.5 truncate text-[10px] text-muted-foreground/50">admin@transport.com</p>
-                    </div>
+                    {!isCollapsed && (
+                        <div className="min-w-0 flex-1">
+                            <p className="truncate text-[13px] font-semibold leading-none text-foreground">Rajesh Kumar</p>
+                            <p className="mt-0.5 truncate text-[10px] text-muted-foreground">admin@transport.com</p>
+                        </div>
+                    )}
                 </div>
 
-                <button className="group flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[12px] font-medium text-sidebar-foreground/40 transition-all hover:bg-rose-500/10 hover:text-rose-400">
-                    <LogOut size={13} className="transition-transform group-hover:-translate-x-0.5" />
-                    Sign Out
+                <button
+                    className={`group flex items-center rounded-lg py-2 text-[12px] font-medium transition-all hover:bg-rose-500/10 hover:text-rose-500 ${isCollapsed ? 'justify-center w-full px-0 text-muted-foreground' : 'w-full gap-2.5 px-3 text-sidebar-foreground/60'}`}
+                    title={isCollapsed ? "Sign Out" : undefined}
+                >
+                    <LogOut size={14} className={`transition-transform ${!isCollapsed && 'group-hover:-translate-x-0.5'}`} />
+                    {!isCollapsed && "Sign Out"}
                 </button>
             </div>
         </aside>

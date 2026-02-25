@@ -23,7 +23,7 @@ export default function BiddingRequirementTags({ requirements, selectedId, onSel
                             "cursor-pointer px-3 py-2 transition-all duration-300 flex flex-col gap-0.5 relative border-t-2 rounded-b-lg group",
                             selectedId === req.id
                                 ? "border-primary bg-primary/[0.03] text-foreground shadow-[0_4px_12px_-4px_rgba(249,115,22,0.1)]"
-                                : "border-transparent text-muted-foreground hover:bg-slate-50/80 hover:border-slate-300"
+                                : "border-transparent text-muted-foreground hover:bg-slate-50/80 dark:hover:bg-muted/80 hover:border-slate-300 dark:hover:border-border"
                         )}
                     >
                         <div className="flex items-center gap-1.5">

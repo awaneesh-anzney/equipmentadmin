@@ -135,13 +135,16 @@ export default function RequirementCard({ requirement }: { requirement: Requirem
                             variant="ghost"
                             size="sm"
                             onClick={() => setIsDetailsOpen(true)}
-                            className="h-9 gap-2 bg-slate-50 text-foreground hover:bg-white font-bold transition-all rounded-md px-4 border border-slate-200 hover:border-primary/40 shadow-sm text-[12.5px]"
+                            className="h-9 gap-2 bg-slate-50 text-slate-700 dark:bg-muted dark:text-foreground hover:bg-white dark:hover:bg-muted/80 font-bold transition-all rounded-md px-4 border border-slate-200 dark:border-border hover:border-primary/40 shadow-sm text-[12.5px]"
                         >
                             <Eye className="h-4 w-4" />
                             Details
                         </Button>
                         {status === "DRAFT" && (
-                            <Button size="sm" className="h-7 rounded-md bg-chart-2 hover:bg-chart-2/90 text-white border-none px-3 text-[11px] font-bold shadow-sm">
+                            <Button
+                                size="sm"
+                                className="h-9 gap-2 bg-chart-2 hover:bg-chart-2/90 text-white font-bold transition-all rounded-md px-4 border-none shadow-sm text-[12.5px]"
+                            >
                                 Publish
                             </Button>
                         )}
