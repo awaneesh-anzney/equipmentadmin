@@ -1,9 +1,9 @@
-import React from 'react'
+import VehicleManagementContainer from "@/components/vehicles/VehicleManagementContainer";
 
-const page = () => {
+export default function VehiclesPage() {
     return (
-        <div>vehicle</div>
-    )
+        <div className="max-w-[1600px] mx-auto">
+            <VehicleManagementContainer />
+        </div>
+    );
 }
-
-export default page

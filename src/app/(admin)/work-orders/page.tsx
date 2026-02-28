@@ -1,9 +1,12 @@
-import React from 'react'
+import WorkOrderListContainer from "@/components/work-orders/WorkOrderListContainer";
+import React from 'react';
 
-const page = () => {
+const WorkOrdersPage = () => {
     return (
-        <div>work order</div>
-    )
-}
+        <div className="max-w-[1600px] mx-auto">
+            <WorkOrderListContainer />
+        </div>
+    );
+};
 
-export default page
+export default WorkOrdersPage;
