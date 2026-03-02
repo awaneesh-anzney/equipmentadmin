@@ -13,7 +13,7 @@ const DEFAULT_ITEMS = [
     },
     {
         label: "Pending Payments",
-        value: "SAR 930K",
+        value: "925,600 SAR",
         icon: Banknote,
         iconClass: "text-chart-4",
         bgClass: "bg-chart-4/10",

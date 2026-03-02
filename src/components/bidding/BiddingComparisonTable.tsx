@@ -50,7 +50,7 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Vendor</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Equipment</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-center">Qty</TableHead>
-                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Rate (SAR )</TableHead>
+                            <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Rate (SAR)</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-center hidden md:table-cell">Age</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest hidden md:table-cell">Rating</TableHead>
                             <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest hidden lg:table-cell">Distance</TableHead>
@@ -88,7 +88,7 @@ export default function BiddingComparisonTable({ bids, subtitle }: BiddingCompar
                                         {bid.vehiclesOffering}
                                     </TableCell>
                                     <TableCell className="px-5 py-4 text-[15px] font-bold text-foreground tabular-nums">
-                                        SAR {bid.rate.toLocaleString()}
+                                        {bid.rate.toLocaleString()} SAR
                                     </TableCell>
                                     <TableCell className="px-5 py-4 text-center text-[13px] text-muted-foreground font-bold hidden md:table-cell">
                                         {bid.vehicleAge}

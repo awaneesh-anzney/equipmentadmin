@@ -26,7 +26,7 @@ const DEFAULT_DATA = [
 
 const chartConfig = {
     revenue: {
-        label: "Revenue (SAR 100K)",
+        label: "Revenue (SAR)",
         color: "var(--primary)",
     },
 } satisfies ChartConfig;

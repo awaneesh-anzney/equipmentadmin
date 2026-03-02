@@ -35,9 +35,9 @@ export default function BillingTable({ records }: BillingTableProps) {
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Vendor</TableHead>
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest">Project</TableHead>
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-center">Month</TableHead>
-                                <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-right">Gross (SAR )</TableHead>
+                                <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-right">Gross (SAR)</TableHead>
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-right">Deductions</TableHead>
-                                <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-right">Net (SAR )</TableHead>
+                                <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-right">Net (SAR)</TableHead>
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-center">Status</TableHead>
                                 <TableHead className="px-5 py-3 text-[10.5px] font-bold text-muted-foreground uppercase tracking-widest text-right">Action</TableHead>
                             </TableRow>
@@ -62,13 +62,13 @@ export default function BillingTable({ records }: BillingTableProps) {
                                         <span className="text-[12.5px] font-medium text-muted-foreground">{record.month}</span>
                                     </TableCell>
                                     <TableCell className="px-5 py-4 text-right w-[120px] whitespace-nowrap">
-                                        <span className="text-[13.5px] font-bold text-foreground tabular-nums">SAR {record.grossAmount.toLocaleString()}</span>
+                                        <span className="text-[13.5px] font-bold text-foreground tabular-nums">{record.grossAmount.toLocaleString()} SAR</span>
                                     </TableCell>
                                     <TableCell className="px-5 py-4 text-right w-[120px] whitespace-nowrap">
-                                        <span className="text-[13px] font-bold text-destructive tabular-nums">-SAR {(record.penaltyDeduction + record.dieselDeduction).toLocaleString()}</span>
+                                        <span className="text-[13px] font-bold text-destructive tabular-nums">-{(record.penaltyDeduction + record.dieselDeduction).toLocaleString()} SAR</span>
                                     </TableCell>
                                     <TableCell className="px-5 py-4 text-right w-[120px] whitespace-nowrap">
-                                        <span className="text-[13.5px] font-bold text-foreground tabular-nums">SAR {record.netAmount.toLocaleString()}</span>
+                                        <span className="text-[13.5px] font-bold text-foreground tabular-nums">{record.netAmount.toLocaleString()} SAR</span>
                                     </TableCell>
                                     <TableCell className="px-5 py-4 text-center w-[130px] whitespace-nowrap">
                                         <Badge
