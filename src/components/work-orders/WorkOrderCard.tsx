@@ -84,7 +84,7 @@ export default function WorkOrderCard({ workOrder, onView }: WorkOrderCardProps)
 
                 <div className="flex flex-col gap-1">
                     <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-muted-foreground/50">Rate</span>
-                    <span className="text-[13.5px] font-bold text-foreground/80 tabular-nums">₹{workOrder.rate.toLocaleString()}/{workOrder.rateType.split(' ')[1]}</span>
+                    <span className="text-[13.5px] font-bold text-foreground/80 tabular-nums">{workOrder.rate.toLocaleString()} SAR/{workOrder.rateType.split(' ')[1]}</span>
                 </div>
 
                 <div className="flex flex-col gap-1">

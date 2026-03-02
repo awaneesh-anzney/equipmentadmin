@@ -41,15 +41,15 @@ export default function CreateRequirementModal({ isOpen, onOpenChange }: CreateR
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Project Name</Label>
-                            <Input placeholder="e.g. Pakri Barwadih Mine" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
+                            <Input placeholder="e.g. NEOM Mega City" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Client Name</Label>
-                            <Input placeholder="e.g. NTPC Ltd" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
+                            <Input placeholder="e.g. NEOM Company" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Site Location</Label>
-                            <Input placeholder="e.g. Jharkhand" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
+                            <Input placeholder="e.g. Tabuk, Saudi Arabia" className="h-10 border-border/50 bg-slate-50/50 dark:bg-muted/30 focus:bg-white dark:focus:bg-muted/80 hover:border-primary/40 focus:border-primary transition-all duration-200" />
                         </div>
                         <div className="space-y-1.5">
                             <Label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">Material Type</Label>

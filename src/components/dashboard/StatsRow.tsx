@@ -1,13 +1,13 @@
 "use client";
 
-import { LucideIcon, TrendingUp, TrendingDown, FileText, Truck, Gavel, IndianRupee } from "lucide-react";
+import { LucideIcon, TrendingUp, TrendingDown, FileText, Truck, Gavel, Banknote } from "lucide-react";
 
 // ── Self-contained data ──────────────────────────────────────
 const DEFAULT_STATS: StatItem[] = [
     { label: "Total Requirements", value: "5", trend: "+2", trendLabel: "vs last month", icon: FileText, trendUp: true },
     { label: "Active Vehicles", value: "44/52", trend: "Deployed on-site", trendLabel: "", icon: Truck, trendUp: true },
     { label: "Pending Bids", value: "12", trend: "+5", trendLabel: "New this week", icon: Gavel, trendUp: true },
-    { label: "Monthly Revenue", value: "₹43.2L", trend: "+12%", trendLabel: "vs last month", icon: IndianRupee, trendUp: true },
+    { label: "Monthly Revenue", value: "4,323,500 SAR", trend: "+12%", trendLabel: "vs last month", icon: Banknote, trendUp: true },
 ];
 
 interface StatItem {

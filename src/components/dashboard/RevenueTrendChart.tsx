@@ -26,7 +26,7 @@ const DEFAULT_DATA = [
 
 const chartConfig = {
     revenue: {
-        label: "Revenue (₹L)",
+        label: "Revenue (SAR)",
         color: "var(--primary)",
     },
 } satisfies ChartConfig;
@@ -47,7 +47,7 @@ export default function RevenueTrendChart({
             <div className="shrink-0 flex items-start justify-between px-5 pt-4 pb-2">
                 <div>
                     <p className="text-[14px] font-bold leading-none text-foreground">Revenue Trend</p>
-                    <p className="mt-1 text-[11px] text-muted-foreground">Monthly (₹ Lakhs)</p>
+                    <p className="mt-1 text-[11px] text-muted-foreground">Monthly (SAR  100K)</p>
                 </div>
                 {badge && (
                     <Badge className="gap-1 border-none bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400">

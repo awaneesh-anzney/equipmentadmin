@@ -35,7 +35,7 @@ export default function WorkOrderDetailsModal({ workOrder, open, onClose }: Work
                         <InfoItem label="Project" value={workOrder.projectName} />
                         <InfoItem label="Client" value={workOrder.clientName} />
                         <InfoItem label="Equipment" value={`${workOrder.vehicleCategory} × ${workOrder.quantity}`} />
-                        <InfoItem label="Rate" value={`₹${workOrder.rate.toLocaleString()} ${workOrder.rateType}`} />
+                        <InfoItem label="Rate" value={`${workOrder.rate.toLocaleString()} ${workOrder.rateType} SAR`} />
                         <InfoItem label="Validity" value={workOrder.validity} />
                         <InfoItem label="Penalty" value={workOrder.penaltyClause} />
                         <InfoItem label="Payment" value={workOrder.paymentCycle} />
