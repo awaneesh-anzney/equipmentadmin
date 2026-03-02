@@ -123,7 +123,7 @@ export default function RequirementDetailsModal({ isOpen, onClose, requirement }
                                             vendor={bid.vendorName}
                                             equipment={bid.vehicleCategory}
                                             qty={bid.vehiclesOffering}
-                                            rate={`₹${bid.rate.toLocaleString()}`}
+                                            rate={`SAR ${bid.rate.toLocaleString()}`}
                                             rating={bid.rating}
                                             status={bid.status}
                                             statusColor={

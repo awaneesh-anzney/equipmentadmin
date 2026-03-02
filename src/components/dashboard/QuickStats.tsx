@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, IndianRupee, BarChart3, LucideIcon } from "lucide-react";
+import { AlertCircle, Banknote, BarChart3, LucideIcon } from "lucide-react";
 
 // ── Self-contained data — colors only from globals.css variables ──
 const DEFAULT_ITEMS = [
@@ -13,8 +13,8 @@ const DEFAULT_ITEMS = [
     },
     {
         label: "Pending Payments",
-        value: "₹9.3L",
-        icon: IndianRupee,
+        value: "SAR 930K",
+        icon: Banknote,
         iconClass: "text-chart-4",
         bgClass: "bg-chart-4/10",
     },

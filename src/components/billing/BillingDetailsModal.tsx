@@ -81,7 +81,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Rate</p>
                             <p className="text-[16px] font-bold text-slate-800 dark:text-foreground tabular-nums">
-                                ₹{record.rate.toLocaleString()}
+                                SAR {record.rate.toLocaleString()}
                             </p>
                         </div>
 
@@ -89,7 +89,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Gross Amount</p>
                             <p className="text-[16px] font-bold text-slate-800 dark:text-foreground tabular-nums">
-                                ₹{record.grossAmount.toLocaleString()}
+                                SAR {record.grossAmount.toLocaleString()}
                             </p>
                         </div>
 
@@ -97,7 +97,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Penalty</p>
                             <p className="text-[16px] font-bold text-rose-500 tabular-nums">
-                                -₹{(record.penaltyDeduction + (record.dieselDeduction || 0)).toLocaleString()}
+                                -SAR {(record.penaltyDeduction + (record.dieselDeduction || 0)).toLocaleString()}
                             </p>
                         </div>
 
@@ -105,7 +105,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Extra Shift Bonus</p>
                             <p className="text-[16px] font-bold text-emerald-500 tabular-nums">
-                                +₹{(record.extraShiftBonus || 0).toLocaleString()}
+                                +SAR {(record.extraShiftBonus || 0).toLocaleString()}
                             </p>
                         </div>
 
@@ -113,7 +113,7 @@ export default function BillingDetailsModal({ record, open, onOpenChange }: Bill
                         <div className="space-y-1">
                             <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest">Net Payable</p>
                             <p className="text-[28px] font-black text-slate-900 dark:text-foreground tracking-tighter tabular-nums leading-none">
-                                ₹{record.netAmount.toLocaleString()}
+                                SAR {record.netAmount.toLocaleString()}
                             </p>
                         </div>
                     </div>
