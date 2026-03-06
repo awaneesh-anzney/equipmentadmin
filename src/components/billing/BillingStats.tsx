@@ -15,17 +15,17 @@ export default function BillingStats({ records }: BillingStatsProps) {
     const stats = [
         {
             label: "TOTAL BILLED",
-            value: `${(totalBilled / 1000).toFixed(1)} SARK`,
+            value: `${totalBilled.toLocaleString()} SAR`,
             color: "text-foreground",
         },
         {
             label: "DEDUCTIONS",
-            value: `${(totalDeductions / 1000).toFixed(0)} SARK`,
+            value: `${totalDeductions.toLocaleString()} SAR`,
             color: "text-destructive",
         },
         {
             label: "NET PAYABLE",
-            value: `${((totalBilled - totalDeductions) / 1000).toFixed(1)} SARK`,
+            value: `${(totalBilled - totalDeductions).toLocaleString()} SAR`,
             color: "text-foreground",
         },
         {
