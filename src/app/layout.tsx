@@ -8,8 +8,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "FleetShare360 — Fleet Management",
-    description: "Professional equipment bidding and fleet management platform",
+    title: "FleetShare360-admin",
+    description: "FleetShare360-admin",
+    icons: {
+        icon: "/icon.svg",
+    },
 };
 
 import { Toaster } from "@/components/ui/sonner";
